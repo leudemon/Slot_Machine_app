@@ -1,4 +1,3 @@
-import random
 from Functions import checkWinnings
 from Functions import get_bet
 from Functions import get_deposit
@@ -9,14 +8,11 @@ from Functions import spin
 from Functions import config
 
 
-def main():
-    balance = get_deposit.deposit()
-    while True:
-        print("Balance: {}".format(balance))
-        answer = input("Press enter to spin(Q) to quit")
-        if answer == "q":
-            break
-        balance += spin.spin(balance)
-
-
-main()
+def print_slot_machine(columns):
+    for row in range(len(columns[0])):
+        for i, column in enumerate(columns):
+            if i != len(columns) - 1:
+                print(column[row], end=' | ')
+            else:
+                print(column[row], end="")
+        print()
